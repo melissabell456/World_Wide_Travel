@@ -1,7 +1,11 @@
 <!-- ng-repeat="book in books" -->
-
-<ul ng-repeat="book in guides">
-  <li><h2>{{book.title}}</h2>
-    <p>price:{{book.price}}</p>
-  </li>
-</ul>
+<div>
+  <ul>
+    <li ng-repeat="book in guides">
+      <h3>{{book.title}}</hr>
+      <p>Price: ${{book.price}}</p>
+      <p>Type: {{book.type}}</p>
+    </li>
+  </ul>
+</div>
+  
