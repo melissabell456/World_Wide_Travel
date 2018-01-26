@@ -1,11 +1,17 @@
 <!-- ng-repeat="book in books" -->
 <div>
-  <ul>
-    <li ng-repeat="book in guides">
-      <h3>{{book.title}}</hr>
-      <p>Price: ${{book.price}}</p>
-      <p>Type: {{book.type}}</p>
-    </li>
-  </ul>
+  <h4>Filter for region type:</h4>
+    <input type="radio" name="bookType" value="city" ng-model="bookType"> City 
+    <input type="radio" name="bookType" value="country" ng-model="bookType"> Country 
+    <input type="radio" name="bookType" value="region" ng-model="bookType"> Region 
+  <h4>Search By Title</h4>
+    <input type="text" ng-model="titleSearch">
+    <ul>
+      <li ng-repeat="book in guides | filter: {type: bookType, title: titleSearch}">
+        <h4>{{book.title}}</h4>
+        <p>Price: ${{book.price}}</p>
+        <p>Type: {{book.type}}</p>
+      </li>
+    </ul>
 </div>
   
