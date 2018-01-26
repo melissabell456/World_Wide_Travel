@@ -7,7 +7,6 @@ angular.module("TravelGuideApp").factory("BookFactory", function($http, $q) {
       $http
       .get("../../data/guides.json")
       .then( (guides) => {
-        console.log(guides.data.guides);
         resolve(guides.data.guides);
       })
       .catch((err) => {
@@ -17,5 +16,3 @@ angular.module("TravelGuideApp").factory("BookFactory", function($http, $q) {
   };
   return { getTravelGuides };
 })
-// A call to the data folder for guides.json using $http
-// Use the $q service to wrap your http call in a promise

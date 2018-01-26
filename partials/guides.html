@@ -10,12 +10,12 @@
     <br>
   <button ng-click="sortPrices = !sortPrices" >Sort By Price</button>
     <ul ng-init="sortPrices = false">
-      <li ng-show="sortPrices" ng-repeat="book in guides | orderBy: '-price' | filter: {type: bookType, title: titleSearch}">
+      <li ng-show="sortPrices" ng-repeat="book in guides | orderBy: 'price' | filter: {type: bookType, title: titleSearch}">
           <h4>{{book.title}}</h4>
           <p>Price: ${{book.price}}</p>
           <p>Type: {{book.type}}</p>
       </li>
-      <li ng-show="!sortPrices" ng-repeat="book in guides | filter: {type: bookType, title: titleSearch}">
+      <li ng-show="!sortPrices" ng-repeat="book in guides | orderBy: '' | filter: {type: bookType, title: titleSearch}">
         <h4>{{book.title}}</h4>
           <p>Price: ${{book.price}}</p>
           <p>Type: {{book.type}}</p>
