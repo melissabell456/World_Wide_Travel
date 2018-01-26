@@ -6,11 +6,19 @@
     <input type="radio" name="bookType" value="region" ng-model="bookType"> Region 
   <h4>Search By Title</h4>
     <input type="text" ng-model="titleSearch">
-    <ul>
-      <li ng-repeat="book in guides | filter: {type: bookType, title: titleSearch}">
+    <br>
+    <br>
+  <button ng-click="sortPrices = !sortPrices" >Sort By Price</button>
+    <ul ng-init="sortPrices = false">
+      <li ng-show="sortPrices" ng-repeat="book in guides | orderBy: '-price' | filter: {type: bookType, title: titleSearch}">
+          <h4>{{book.title}}</h4>
+          <p>Price: ${{book.price}}</p>
+          <p>Type: {{book.type}}</p>
+      </li>
+      <li ng-show="!sortPrices" ng-repeat="book in guides | filter: {type: bookType, title: titleSearch}">
         <h4>{{book.title}}</h4>
-        <p>Price: ${{book.price}}</p>
-        <p>Type: {{book.type}}</p>
+          <p>Price: ${{book.price}}</p>
+          <p>Type: {{book.type}}</p>
       </li>
     </ul>
 </div>
